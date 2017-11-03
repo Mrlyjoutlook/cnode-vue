@@ -1,20 +1,21 @@
 <template>
-  <div class="home">
-    {{ msg }}
+  <div class="admin">
+    <div class="admin_info">
+      <div class="admin_pict"></div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomePage',
-  data() {
-    return {
-      msg: 'admin',
-    };
-  },
+  name: 'AdminPage',
 };
 </script>
 
 <style scoped>
-
+.admin_info{
+  width: 100%;
+  height: 300px;
+  background: #ffffff;
+}
 </style>

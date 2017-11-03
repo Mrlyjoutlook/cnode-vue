@@ -1,20 +1,18 @@
 <template>
-  <div class="home">
-    {{ msg }}
+  <div class="login">
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomePage',
-  data() {
-    return {
-      msg: 'Login',
-    };
-  },
+  name: 'LoginPage',
 };
 </script>
 
 <style scoped>
-
+.login{
+  width: 100vw;
+  height: 100vh;
+  background: #dadada;
+}
 </style>
