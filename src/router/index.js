@@ -12,6 +12,10 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
+      path: '/',
+      redirect: '/home/all',
+    },
+    {
       path: '/home/:type',
       name: 'home',
       component: HomePage,

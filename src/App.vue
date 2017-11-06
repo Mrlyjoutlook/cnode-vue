@@ -1,25 +1,35 @@
 <template>
   <div id="app">
-    <mt-header title="Cnode" class="header">
+    <mt-header fixed title="Cnode" class="header">
       <div slot="left">
         <mt-button icon="back" />
       </div>
     </mt-header>
-    <transition :name="transitionName">
-      <router-view/>
-    </transition>
-    <mt-tabbar>
+    <router-view/>
+    <mt-tabbar class="tabbar" v-show="showTab()">
       <mt-tab-item id="home">
-        <router-link to="/">首页</router-link>
+        <div class="tabbar_item" v-on:click="tabEvent('/home/all')">
+          <img src="./assets/ic_home_black_24px.svg"/>
+          <span>首页</span>
+        </div>
       </mt-tab-item>
       <mt-tab-item id="message">
-        <router-link to="/message">消息</router-link>
+        <div class="tabbar_item" v-on:click="tabEvent('/message')">
+          <img src="./assets/ic_forum_black_24px.svg"/>
+          <span>消息</span>
+        </div>
       </mt-tab-item>
       <mt-tab-item id="publish">
-        <router-link to="/publish">发表</router-link>
+        <div class="tabbar_item" v-on:click="tabEvent('/create')">
+          <img src="./assets/ic_create_black_24px.svg"/>
+          <span>发表</span>
+        </div>
       </mt-tab-item>
       <mt-tab-item id="admin">
-        <router-link to="/admin">我的</router-link>
+        <div class="tabbar_item" v-on:click="tabEvent('/admin')">
+          <img src="./assets/ic_person_outline_black_24px.svg"/>
+          <span>我的</span>
+        </div>
       </mt-tab-item>
     </mt-tabbar>
   </div>
@@ -28,26 +38,33 @@
 <script>
 export default {
   name: 'app',
-  data() {
-    return {
-      transitionName: 'slide-left',
-    };
-  },
-  watch: {
-    '$route'(to, from) {
-      const toDepth = to.path.split('/').length;
-      const fromDepth = from.path.split('/').length;
-      this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left';
+  methods: {
+    tabEvent(path) {
+      this.$router.push(path);
+    },
+    showTab() {
+      const { path } = this.$route;
+      return path !== '/login' && path !== '/topic';
     },
   },
 };
 </script>
 
 <style>
-#app {
+#app{
   /* background: #dadada; */
 }
-.header {
+.header{
   height: 90px;
+}
+.tabbar{
+  border-top: solid 1px #c8c8c8;
+
+}
+.tabbar_item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>

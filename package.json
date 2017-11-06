@@ -15,8 +15,11 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
+    "lodash": "^4.17.4",
     "mint-ui": "^2.2.9",
+    "moment": "^2.19.1",
     "normalize.css": "^7.0.0",
+    "normalizr": "^3.2.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.0"

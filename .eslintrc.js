@@ -38,5 +38,6 @@ module.exports = {
     "object-shorthand": 0,
     "func-names": 0,
     "no-console": 0,
+    "no-else-return": 0,
   }
 }

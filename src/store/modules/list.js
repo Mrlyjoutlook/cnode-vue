@@ -1,3 +1,6 @@
+import { normalize, schema } from 'normalizr';
+import { reqList } from '../../config/service';
+
 /**
 |--------------------------------------------------
 | types
@@ -25,7 +28,12 @@ const state = {
 |--------------------------------------------------
 */
 const actions = {
-
+  async getList({ commit }, params) {
+    const { success, data } = await reqList(params);
+    if (success) {
+      commit(ADD_LIST_DATA, { data, tab: params.tab });
+    }
+  },
 };
 /**
 |--------------------------------------------------
@@ -33,8 +41,13 @@ const actions = {
 |--------------------------------------------------
 */
 const mutations = {
-  ADD_LIST_DATA() {
-
+  ADD_LIST_DATA(stat, { data, tab }) {
+    const id = new schema.Entity('id');
+    const listSchema = [id];
+    const normalizedData = normalize(data, listSchema);
+    state.listData[tab].id.push(...normalizedData.result);
+    state.listData[tab].data = Object.assign(state.listData[tab].data, normalizedData.entities.id);
+    state.listData[tab].page += 1;
   },
 };
 
