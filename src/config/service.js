@@ -9,7 +9,7 @@ function checkStatus(response) {
   }
 }
 
-function request(method, url, params, data) {
+function request(method = 'get', url = '', params = {}, data = {}) {
   return axios({
     url,
     baseURL: 'https://cnodejs.org/api/v1',
@@ -39,6 +39,16 @@ function request(method, url, params, data) {
  * @param {Object} params
  */
 export const reqList = params => request('get', '/topics', params);
+/**
+ * 获取用户信息
+ * @param {String} params
+ */
+export const reqUserInfo = loginname => request('get', `/user/${loginname}`);
+/**
+ * 校验token有效性
+ * @param {Object} data
+ */
+export const checkToken = data => request('post', '/accesstoken', {}, data);
 
 /**
  * default

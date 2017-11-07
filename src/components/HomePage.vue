@@ -16,7 +16,7 @@
       v-infinite-scroll="loadMore"
       infinite-scroll-disabled="loading"
       infinite-scroll-distance="10">
-      <ListItem
+      <HomeListItem
         v-for="item in list"
         :key="item.id"
         :id="item.id"
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import ListItem from './ListItem';
+import HomeListItem from './HomeListItem';
 
 export default {
   name: 'HomePage',
@@ -79,7 +79,7 @@ export default {
     },
   },
   components: {
-    ListItem,
+    HomeListItem,
   },
   mounted() {
     this.$data.loading = true;

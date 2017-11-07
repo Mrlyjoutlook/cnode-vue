@@ -44,7 +44,7 @@ export default {
     },
     showTab() {
       const { path } = this.$route;
-      return path !== '/login' && path !== '/topic';
+      return path.indexOf('/login') === -1 && path.indexOf('/topic') === -1 && path.indexOf('/list') === -1;
     },
   },
 };

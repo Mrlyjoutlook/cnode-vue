@@ -41,7 +41,7 @@ const actions = {
 |--------------------------------------------------
 */
 const mutations = {
-  ADD_LIST_DATA(stat, { data, tab }) {
+  ADD_LIST_DATA(state, { data, tab }) {
     const id = new schema.Entity('id');
     const listSchema = [id];
     const normalizedData = normalize(data, listSchema);

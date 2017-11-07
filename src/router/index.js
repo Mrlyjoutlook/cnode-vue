@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import HomePage from '@/components/HomePage';
 import LoginPage from '@/components/LoginPage';
 import AdminPage from '@/components/AdminPage';
+import ListPage from '@/components/ListPage';
 // import MessagePage from '@/components/MessagePage';
 // import TopicPage from '@/components/TopicPage';
 // import CommentPage from '@/components/CommentPage';
@@ -29,6 +30,11 @@ export default new Router({
       path: '/admin',
       name: 'admin',
       component: AdminPage,
+    },
+    {
+      path: '/list/:type',
+      name: 'list',
+      component: ListPage,
     },
     // {
     //   path: '/topic/:id',

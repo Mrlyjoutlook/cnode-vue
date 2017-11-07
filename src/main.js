@@ -11,6 +11,7 @@ import {
   Lazyload,
   Field,
   Radio,
+  Cell,
 } from 'mint-ui';
 import 'normalize.css';
 import './styles.css';
@@ -33,6 +34,7 @@ Vue.component(TabContainerItem.name, TabContainerItem);
 Vue.component(Tabbar.name, Tabbar);
 Vue.component(Field.name, Field);
 Vue.component(Radio.name, Radio);
+Vue.component(Cell.name, Cell);
 Vue.component(Button.name, Button);
 Vue.component(Lazyload);
 
